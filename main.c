@@ -30,5 +30,33 @@ void verifyLogin()
 int main()
 {
     verifyLogin();
+
+    int opc;
+     do{
+        printf("1 - Cadastrar Disciplinas\n");
+        printf("2 - Exibir disciplinas\n");
+        printf("3 - Matricular Aluno\n");
+        printf("4 - Exibe alunos matriculados\n");
+        printf("5 - Atribuir Nota para alunos\n");
+        printf("6 - Sair\n");
+        printf("Digite uma opção: ");
+        scanf(" %d", &opc);
+        system("clear");
+        
+        switch(opc){
+           case 1: //Cadastrar Disciplinas(); 
+           break;
+           case 2: //ExibirNota();
+           break;
+           case 3: //MatricularAluno
+           break;
+           case 4: //exibirAlunos();
+           break;
+           case 5: //NotaAluno();
+           break;
+        }
+
+     } while(opc != 6);
+    printf("Até mais, %s", login);
     return 0;
 }
