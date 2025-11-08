@@ -6,13 +6,19 @@
 #define login "admin"
 #define password 123
 
- char disciplinas[100][100];
- int quanti = 0;
- char alunos[100][100];
+struct Disciplina
+{
+    char nome[50];
+    char alunos[30][50];
+};
 
+int qtdDisc = 0;
+int qtdAluno = 0;
+
+struct Disciplina disciplinas[100];
 void verifyLogin()
 {
-    setlocale(LC_ALL,"");
+    setlocale(LC_ALL, "");
     char user[100];
     int pass;
 
@@ -28,43 +34,58 @@ void verifyLogin()
         {
             printf("Login ou senha incorretos\n");
             system("pause");
-            system("cls");
+            system("cts");
         }
     } while (strcmp(login, user) != 0 || password != pass);
-    system("cls");
+    system("cts");
 }
 void cadastrarD()
 {
     printf("Cadastre uma nova disciplina\n");
-    scanf(" %s", disciplinas[quanti]);
-    printf("Disciplina (%s) cadastrada!\n", disciplinas[quanti]);
-    quanti++;
-            system("pause");
-            system("cls");
+    scanf(" %s", disciplinas[qtdDisc].nome);
+
+    printf("Disciplina (%s) cadastrada!\n", disciplinas[qtdDisc].nome);
+    qtdDisc++;
+    system("pause");
+    system("cts");
 }
 void exibirD()
 {
-    int i = 0;
-    for (i = 0; i < quanti; i++) {
-        printf("%s\n", disciplinas[i]);
+    printf("== Disciplinas ==\n");
+    for (int i = 0; i < qtdDisc; i++)
+    {
+        printf("%d - %s\n", i + 1, disciplinas[i].nome);
     }
     system("pause");
-    system("cls");
+    system("cts");
 }
 void matricularA()
 {
-printf("Cadastre um aluno\n");
-    scanf("%s", alunos);
-    printf("Aluno cadastrado!\n", alunos);
-            system("pause");
-            system("cls");
+    char nome[30];
+    int id;
+    printf("== Matricular Aluno ==\n");
+    printf("Digite o nome do aluno e o id da disciplina\n");
+    exibirD();
+
+    printf("Nome: ");
+    scanf("%s", nome);
+    printf("Id da disciplina: ");
+    scanf("%d", &id);
+    id--;
+
+    strcpy(disciplinas[id].alunos[qtdAluno], nome);
+    qtdAluno++;
+    printf("Aluno %s matriculado em %s!\n", nome, disciplinas[id].nome);
+    system("pause");
+    system("cts");
 }
 int main()
 {
     verifyLogin();
 
     int opc;
-     do{
+    do
+    {
         printf("1 - Cadastrar Disciplinas\n");
         printf("2 - Exibir disciplinas\n");
         printf("3 - Matricular Aluno na disciplina\n");
@@ -73,33 +94,26 @@ int main()
         printf("6 - Sair\n");
         printf("Digite uma opção: ");
         scanf(" %d", &opc);
-        system("cls");
+        system("cts");
 
-        switch(opc){
-           case 1: cadastrarD(); break;
+        switch (opc)
+        {
+        case 1:
+            cadastrarD();
+            break;
 
-           case 2: exibirD(); break;
+        case 2:
+            exibirD();
+            break;
 
-           case 3: matricularA(); break;
+        case 3: matricularA(); break;
 
-           case 4: //exibirA(); break;
+        case 4: // exibirA(); break;
 
-           case 5: //NotaAluno(); break;
-
+        case 5: // NotaAluno(); break;
         }
 
-     } while(opc != 6);
-        printf("Até mais, %s", login);
-return 0;
+    } while (opc != 6);
+    printf("Até mais, %s", login);
+    return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
