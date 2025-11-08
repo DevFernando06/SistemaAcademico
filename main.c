@@ -8,6 +8,8 @@
 
  char disciplinas[100][100];
  int quanti = 0;
+ char alunos[100][100];
+
 void verifyLogin()
 {
     setlocale(LC_ALL,"");
@@ -34,19 +36,28 @@ void verifyLogin()
 void cadastrarD()
 {
     printf("Cadastre uma nova disciplina\n");
-        scanf("%s", disciplinas);
-        quanti++;
-    printf("Disciplina (%s) cadastrada!\n", disciplinas);
+    scanf(" %s", disciplinas[quanti]);
+    printf("Disciplina (%s) cadastrada!\n", disciplinas[quanti]);
+    quanti++;
             system("pause");
             system("cls");
 }
 void exibirD()
 {
     int i = 0;
-    for (i = 0; i < quanti; i++)
-    printf("%s\n", disciplinas);
+    for (i = 0; i < quanti; i++) {
+        printf("%s\n", disciplinas[i]);
+    }
     system("pause");
     system("cls");
+}
+void matricularA()
+{
+printf("Cadastre um aluno\n");
+    scanf("%s", alunos);
+    printf("Aluno cadastrado!\n", alunos);
+            system("pause");
+            system("cls");
 }
 int main()
 {
@@ -56,9 +67,9 @@ int main()
      do{
         printf("1 - Cadastrar Disciplinas\n");
         printf("2 - Exibir disciplinas\n");
-        printf("3 - Matricular Aluno\n");
+        printf("3 - Matricular Aluno na disciplina\n");
         printf("4 - Exibe alunos matriculados\n");
-        printf("5 - Atribuir Nota para alunos\n");
+        printf("5 - Atribuir Nota para aluno\n");
         printf("6 - Sair\n");
         printf("Digite uma opção: ");
         scanf(" %d", &opc);
@@ -69,17 +80,17 @@ int main()
 
            case 2: exibirD(); break;
 
-           case 3: //MatricularAluno break;
+           case 3: matricularA(); break;
 
-           case 4: //exibirAlunos(); break;
+           case 4: //exibirA(); break;
 
            case 5: //NotaAluno(); break;
 
         }
 
      } while(opc != 6);
-    printf("Até mais, %s", login);
-    return 0;
+        printf("Até mais, %s", login);
+return 0;
 }
 
 
