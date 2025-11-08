@@ -172,7 +172,7 @@ void exibirTudo() {
 int main() {
     verifyLogin();
 
-    int opc;
+    char opc;
     do {
         printf("1 - Cadastrar Disciplina\n");
         printf("2 - Cadastrar Aluno\n");
@@ -182,22 +182,22 @@ int main() {
         printf("6 - Exibir Disciplinas e Alunos\n");
         printf("7 - Sair\n");
         printf("Escolha uma opção: ");
-        scanf("%d", &opc);
+        scanf(" %c", &opc);
         system("cls");
 
         switch (opc) {
-            case 1: cadastrarDisciplina(); break;
-            case 2: cadastrarAluno(); break;
-            case 3: matricularAluno(); break;
-            case 4: exibirD(); break;
-            case 5: atribuirNota(); break;
-            case 6: exibirTudo(); break;
+            case '1': cadastrarDisciplina(); break;
+            case '2': cadastrarAluno(); break;
+            case '3': matricularAluno(); break;
+            case '4': exibirD(); break;
+            case '5: atribuirNota(); break;
+            case '6': exibirTudo(); break;
             default:
             printf("Opção inválida!\n");
             continue;
         }
 
-    } while (opc != 7);
+    } while (opc != '7');
 
     printf("Até mais, %s!\n", login);
     return 0;
