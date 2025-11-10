@@ -190,7 +190,7 @@ int main() {
             case '2': cadastrarAluno(); break;
             case '3': matricularAluno(); break;
             case '4': exibirD(); break;
-            case '5: atribuirNota(); break;
+            case '5': atribuirNota(); break;
             case '6': exibirTudo(); break;
             default:
             printf("Opção inválida!\n");
