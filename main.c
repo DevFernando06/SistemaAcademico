@@ -192,7 +192,7 @@ int main() {
             case '4': exibirD(); break;
             case '5': atribuirNota(); break;
             case '6': exibirTudo(); break;
-            default;
+            default:
             continue;
         }
 
